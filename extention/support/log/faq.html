@@ -1,0 +1,372 @@
+<!-- 
+The myWebRTC application was developed during the summer semester 2014 
+ and winter semester 2014-2015 (March 2014-March 2015) as a part of the
+ Master course Business Computing in the Technical University of Applied Science TH Wildau.
+
+ You may use this code for your own education. If you use it largely intact,
+ or develop something from it, don't claim that your code came first. 
+ You are using this code completely at your own risk.  
+
+ CREDITS: Johnston & Burnett WebRTCbook.com 
+ -->
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>FAQ</title>
+
+        <style>
+
+
+            div {
+                display:  inline-block;
+            }
+
+			p.padding_left {
+				padding: 2%;
+				margin: 0cm;
+			}
+			
+			p.padding_right {
+				padding: 2%;
+			}
+			
+			h3.padding_left {
+				padding-left: 2%;
+				padding-bottom: 0%;
+			}
+			
+			h3.padding_right {
+				padding: 2%;
+			}
+			
+			a.padding_left {
+				padding-left: 3%;
+			}
+			
+			a.padding_right {
+				padding: 2%;
+			}
+			
+			img.padding_right {
+				padding-right: 2%;
+				padding-top: 0%;
+				margin-top: 0cm;
+			}
+			
+            body {
+                background-color:#FFF;
+				font-family: calibri;
+			}
+			
+			/*Settings for the table*/
+            #table {
+                /*margin-left: auto; 
+                    margin: 0px; */
+                width: 70%;
+                border-collapse: collapse;
+                padding: 0px;
+                background-color:#f1f1f1;
+            }
+
+            .td {
+                border: 1px solid #98bf21;
+				padding: 15px;
+                /*background-color:#FFF; */
+            }
+
+            .tr {
+                border: 1px solid #98bf21;
+            }
+           
+            span.color_h3 {
+                color: #98bf21;
+            }
+
+            /* for Navigation Buttons*/
+         			
+            ul#menu {
+                padding: 0px;
+			}
+
+            ul#menu li {
+                display: inline;
+            }
+
+            ul#menu li a {
+                background-color: #98bf21;
+                color: #FFFFFF;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 4px 4px 0 0;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            ul#menu li a:hover {
+                background-color: #7A991A;
+            }
+
+            /* Animated box */
+            #animated_div {
+                width:108px;
+                height:30px;
+                background:#92B901;
+                color:#ffffff;
+                position:relative;
+                /* left:30px;
+                margin-right: auto; */
+                font-weight:bold;
+                font-size:20px;
+                padding:10px;
+                animation:animated_div 7s infinite;
+                -moz-animation:animated_div 7s infinite;
+                -webkit-animation:animated_div 7s infinite;
+                -o-animation:animated_div 7s infinite;
+                border-radius:5px;
+                -webkit-border-radius:5px;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes animated_div{
+                0%		{transform: rotate(0deg);left:1%;}
+                25%		{transform: rotate(20deg);left:1%;}
+                50%		{transform: rotate(0deg);left:1%;}
+                55%		{transform: rotate(0deg);left:82%;}
+                70%		{transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{transform: rotate(-360deg);left:82%;}
+            }
+
+            @-webkit-keyframes animated_div {
+                0%		{-webkit-transform: rotate(0deg);left:1%;}
+                25%		{-webkit-transform: rotate(20deg);left:1%;}
+                50%		{-webkit-transform: rotate(0deg);left:82%;}
+                55%		{-webkit-transform: rotate(0deg);left:82%;}
+                70%		{-webkit-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{-webkit-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-moz-keyframes animated_div {
+                0%   {-moz-transform: rotate(0deg);left:1%;}
+                25%  {-moz-transform: rotate(20deg);left:1%;}
+                50%  {-moz-transform: rotate(0deg);left:82%;}
+                55%  {-moz-transform: rotate(0deg);left:82%;}
+                70%  {-moz-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {-moz-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-o-keyframes animated_div {
+                0%   {transform: rotate(0deg);left:1%;}
+                25%  {transform: rotate(20deg);left:1%;}
+                50%  {transform: rotate(0deg);left:82%;}
+                55%  {transform: rotate(0deg);left:82%;}
+                70%  {transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {transform: rotate(-360deg);left:1%;}
+            }
+        </style>
+    </head>
+	
+    <body>
+	
+	<!-- Logos-->
+        <a href="http://th-wildau.de/"><img src="http://www.th-wildau.de/fileadmin/dokumente/aktuelles/Service_Arbeitsmaterialien/bilder/TH-Wildau-Logo_200px-breit.png" width="100" height="40" align="right" alt="TH Wildau Logo"/></a>
+        <a href="../index.html"><img src="icons/logo.png" width="74" height="89" align="left" alt="MyWebRTC"/></a>
+		</br>
+        <p align="center"><b>Project of the Master course "Advanced Communication Solutions"</b></p>
+		</br>
+
+        <table id="table" align="center">
+			<tr bgcolor="#FFFFFF">
+				<td></td>	
+				
+				<!-- Menu tabs-->
+				<td  colspan="2" align="right">
+					<ul id="menu">
+						 <li><a href="../demo.html">Demo-Version</a></li>
+						<li><a href="login.html">Log In</a></li>
+						<li><a href="registry.html">Registration</a></li>
+						<li><a href="imprint.html">Imprint</a></li>
+					</ul>
+				</td> 
+			</tr>
+			
+            <tr class="tr">
+                <td colspan="3">
+                    <h1 align="center">FAQ</h1>
+                    <p class="padding_left" align="left"> In this section you may find Frequently Asked Questions and their answers. 
+					<br/>
+					If you still have questions, do not hesitate to <a href="mailto:alexandra.makariti@th-wildau.de?subject=Question&body=Unfortunately the FAQ section did not include my question!">contact</a> us. We will be glad to assist you!
+					</br>
+                    <ol>
+						<script type="text/javascript">
+									function expand(a){
+									var e=document.getElementById(a);
+									if(!e)return true;
+									if(e.style.display=="none"){
+									e.style.display="block"
+									}
+									else{
+									e.style.display="none"
+									}
+									return true;
+									}
+						</script>
+						<li>
+							<h4 style="color: #98bf21" class="padding_left">What does <big>myWebRTC</big> do?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer0')" value="Answer"><br>
+						<div id="answer0" style="display:none" align="left">
+							<br/>
+							<b><font color="#98bf21">myWebRTC</font></b> is a free software based on the WebRTC of the W3C standard. At this stage it does not contain a STUN-server of its own, but uses public STUN servers and it consists of three basic elements: 
+							<ul style="list-style-type:square">
+								<br/>
+								<li>a <b>website</b>: 
+								<br/>
+								for the communication management with a window design for the communication streams,</li>
+								<li>a <b>node.js server</b>:
+								<br/>
+								for the connection management and </li>
+								<li>a <b>MySQL database</b>:
+								<br/>
+								for the user management interface.</li>
+							</ul>
+							<br/>
+						</div>
+									
+						<li><h4 style="color: #98bf21">Which versions of Chrome, Firefox, Opera and Android support the <big>myWebRTC</big> application?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer1')" value="Answer"><br>
+						<div id="answer1" style="display:none" align="left">
+							<br/>
+							Here you may have an update overview of the Browser versions which support the WebRTC standard.
+							<br/>
+							<br/>
+							<div style="border: 3px solid rgb(146,185,1);  overflow: hidden;  margin: 1px auto; width:90%;">
+								<iframe scrolling="no" src="http://www.caniuse.com/#search=webrtc" style="border: 0px none; height: 740px; margin-top: -330px; width: 100%;">
+								</iframe>
+							</div>
+							<br/>
+							<span align="right"><i>Source: <a href="http://caniuse.com/#search=webrtc">caniuse.com</a></i></span>
+							<br/>
+						</div>
+									
+						<li><h4 style="color: #98bf21">Does <big>myWebRTC</big> work also on iOS mobile platform?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer2')" value="Answer"><br>
+						<div id="answer2" style="display:none">
+							<br/>
+							Unfortunately, the present iOS-App for Chrome on iPad and iPhone does not yet support voice and video.
+							<br/>
+						</div>
+							
+						<li><h4 style="color: #98bf21">What kind of computer operation systems support the application <big>myWebRTC</big>?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer3')" value="Answer"><br>
+						<div id="answer3" style="display:none">
+							<br/>
+							All computer operation systems (Microsoft, Linux, Apple) are compatible and support the application <b><font color="#98bf21"><big>myWebRTC</big></font></b>. 
+							<br/>
+							Till now we have tested successfully <b>Windows 7, 8, 8.1 </b> as also <b>Mac OS X Mavericks 9.1, OS X Yosemite 10.10.2</b>.
+							<br/>
+						</div>
+									
+						<li><h4 style="color: #98bf21">Is <big>myWebRTC</big> secure?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer4')" value="Answer"><br>
+							<div id="answer4" style="display:none">
+								<br/>
+								<b><font color="#98bf21"><big>myWebRTC</big></font></b> is a <strong>securer</strong> replacement for Skype, FaceTime or Google Hangouts, because:
+								<br/>
+								<ul style="list-style-type:square">
+									<br/>
+									<li>All communication data are encrypted.</li>
+									<li>All connections are managed on your own server.</li>
+									<li>It is based on standards.</li>
+									<li>It is free open source.</li>
+									<li>No terms and conditions have to be signed.</li>
+								</ul>
+								<br/>
+							</div>
+									
+						<li><h4 style="color: #98bf21">Why should I register myself?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer5')" value="Answer"><br>
+						<div id="answer5" style="display:none">
+							<br/>
+							The registration on <b><font color="#98bf21"><big>myWebRTC</big></font></b> application is not mandatory. You can use the <a href="../demo.html">Demo-Version</a> of the application and experience the WebRTC Peer-to-Peer connection.
+							<br/>
+							<br/>
+							However, by registering yourself you will have access to the <b>contact list</b>. That means, that you will be able to see who is online and call them directly.
+							<br/>
+						</div>
+									
+						<li><h4 style="color: #98bf21">Is the use of the application for free?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer6')" value="Answer"><br>
+						<div id="answer6" style="display:none">
+							<br/>
+							<b><font color="#98bf21"><big>myWebRTC</big></font></b> is a license-free open source software!
+							<br/>
+							That means that you may use the application for free, but you may also <strong>extend</strong> and even <strong>change</strong> the source code.
+							<br/>
+						</div>
+									
+						<li><h4 style="color: #98bf21">The File Transfer button is not working, why?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer7')" value="Answer"><br>
+						<div id="answer7" style="display:none">
+							<br/>
+							Since the <b><font color="#98bf21"><big>myWebRTC</big></font></b> application is a part of the Master course <em>Business Computing</em>, the two semester time was not enough for the full development of the application. It is already in the soon plans of the team to develop the application further, by adding the File Transfer feature.
+							<br/>
+						</div>
+									
+						<li><h4 style="color: #98bf21">I have read on the brochure that the application offers <em>desktop-sharing</em> feature but now I do not see it, why?</h4>
+						</li>
+						<input type="button" onclick="return expand('answer8')" value="Answer"><br>
+							<div id="answer8" style="display:none">
+								<br/>
+								The developers of the <b><font color="#98bf21"><big>myWebRTC</big></font></b> team have already programmed the code, but there is a problem with the implementation of this feature.
+								<br/>
+								<ul>
+									<li><b>Chrome Browser</b>:
+									<br/>
+									there is a problem with the new Versions, that the user is not able to activate/deactivate the flags which enable the screen-sharing feature. Therefore it is the installation of an Extension called „Screen Capturing“ required for a non SSL (https) connection. 
+									</li>
+										
+									<li><b>Mozilla Browser</b>:
+									<br/>
+									as an open source Browser offers the possibility to the users to change the Screen-Sharing settings, but then it is again the installation of an Extension called „Enable Screen Capture“ required.
+									</li>
+											
+									<li><b>Opera Browser</b>:
+									<br/>
+									there are no information announced.
+									</li>
+								</ul>
+								<br/>
+								Since the first principle of <b><font color="#98bf21"><big>myWebRTC</big></font></b> is <em>"No software or browser plug-in!"</em>, the <b><font color="#98bf21"><big>myWebRTC</big></font></b> team is trying to find a solution without the installation of any extension.
+							</div>
+							<br />
+							<br />
+                    </ol>
+                    <p align="center"> <i>Your myWebRTC Team </i></p>
+                </td>
+            </tr>
+			<tr>
+				<td colspan="2" bgcolor="white">
+					<br/>
+					<br/>
+					<br/>
+					<!-- Animated box -->
+					<div id="animated_div">myWebRTC</div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+				</td>
+			</tr>
+		</table>   
+	</body>
+</html>

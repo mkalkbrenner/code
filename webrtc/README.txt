@@ -1,0 +1,1 @@
+This progrmm came from the book of Johnston & Burnett "WebRTC: APIs and Protocols of the HTML5 Real-Time Web" (http://webrtcbook.com/)

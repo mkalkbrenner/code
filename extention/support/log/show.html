@@ -1,0 +1,43 @@
+<!-- 
+The myWebRTC application was developed during the summer semester 2014 
+ and winter semester 2014-2015 (March 2014-March 2015) as a part of the
+ Master course Business Computing in the Technical University of Applied Science TH Wildau.
+
+ You may use this code for your own education. If you use it largely intact,
+ or develop something from it, don't claim that your code came first. 
+ You are using this code completely at your own risk.  
+
+ CREDITS: Johnston & Burnett WebRTCbook.com 
+ -->
+ 
+ <!DOCTYPE html>
+
+<html>
+    <head>
+        <title>All users</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    </head>
+    <body>
+		<script>
+                function show()
+                {
+                    $.ajax({
+                        url: "ajax.php",
+                        cache: false,
+                        success: function (html) {
+                            $("#content").html(html);
+                        }
+                    });
+                }
+
+                $(document).ready(function () {
+                    show();
+                    setInterval('show()', 1000);
+                });
+            </script>
+            <div id="content" align="left">
+            </div>
+    </body>
+</html>

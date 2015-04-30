@@ -1,0 +1,248 @@
+<!-- 
+The myWebRTC application was developed during the summer semester 2014 
+ and winter semester 2014-2015 (March 2014-March 2015) as a part of the
+ Master course Business Computing in the Technical University of Applied Science TH Wildau.
+
+ You may use this code for your own education. If you use it largely intact,
+ or develop something from it, don't claim that your code came first. 
+ You are using this code completely at your own risk.  
+
+ CREDITS: Johnston & Burnett WebRTCbook.com 
+ -->
+ 
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Welcome to myWebRTC</title>
+
+        <style>
+
+
+            div {
+                display:  inline-block;
+            }
+
+			p.padding_left {
+				padding: 2%;
+				margin: 0cm;
+			}
+			
+			p.padding_right {
+				padding: 2%;
+			}
+			
+			h3.padding_left {
+				padding-left: 2%;
+				padding-bottom: 0%;
+			}
+			
+			h3.padding_right {
+				padding: 2%;
+			}
+			
+			a.padding_left {
+				padding-left: 3%;
+			}
+			
+			a.padding_right {
+				padding: 2%;
+			}
+			
+			img.padding_right {
+				padding-right: 2%;
+				padding-top: 0%;
+				margin-top: 0cm;
+			}
+			
+            body {
+                background-color:#FFF;
+				font-family: calibri;
+            }
+
+			/*Settings for the table*/		
+            #table {
+                /*margin-left: auto; 
+                    margin: 0px; */
+                width: 70%;
+                border-collapse: collapse;
+                padding: 0px;
+                background-color:#f1f1f1;
+            }
+
+            .td {
+                border: 1px solid #98bf21;
+				padding: 15px;
+                /*background-color:#FFF; */
+            }
+
+            .tr {
+                border: 1px solid #98bf21;
+            }
+            /*
+            .border {
+                    margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+                    padding: 10px;
+                border: 2px solid #98bf21;
+            }
+            */
+            span.color_h3 {
+                color: #98bf21;
+            }
+
+            /* for Navigation Buttons*/
+
+            ul#menu {
+                padding: 0px;
+            }
+
+            ul#menu li {
+                display: inline;
+            }
+
+            ul#menu li a {
+                background-color: #98bf21;
+                color: #FFFFFF;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 4px 4px 0 0;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            ul#menu li a:hover {
+                background-color: #7A991A;
+            }
+
+            /* Animated box */
+            #animated_div {
+                width:108px;
+                height:30px;
+                background:#92B901;
+                color:#ffffff;
+                position:relative;
+                /* left:30px;
+                margin-right: auto; */
+                font-weight:bold;
+                font-size:20px;
+                padding:10px;
+                animation:animated_div 7s infinite;
+                -moz-animation:animated_div 7s infinite;
+                -webkit-animation:animated_div 7s infinite;
+                -o-animation:animated_div 7s infinite;
+                border-radius:5px;
+                -webkit-border-radius:5px;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes animated_div{
+                0%		{transform: rotate(0deg);left:1%;}
+                25%		{transform: rotate(20deg);left:1%;}
+                50%		{transform: rotate(0deg);left:1%;}
+                55%		{transform: rotate(0deg);left:82%;}
+                70%		{transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{transform: rotate(-360deg);left:82%;}
+            }
+
+            @-webkit-keyframes animated_div {
+                0%		{-webkit-transform: rotate(0deg);left:1%;}
+                25%		{-webkit-transform: rotate(20deg);left:1%;}
+                50%		{-webkit-transform: rotate(0deg);left:82%;}
+                55%		{-webkit-transform: rotate(0deg);left:82%;}
+                70%		{-webkit-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{-webkit-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-moz-keyframes animated_div {
+                0%   {-moz-transform: rotate(0deg);left:1%;}
+                25%  {-moz-transform: rotate(20deg);left:1%;}
+                50%  {-moz-transform: rotate(0deg);left:82%;}
+                55%  {-moz-transform: rotate(0deg);left:82%;}
+                70%  {-moz-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {-moz-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-o-keyframes animated_div {
+                0%   {transform: rotate(0deg);left:1%;}
+                25%  {transform: rotate(20deg);left:1%;}
+                50%  {transform: rotate(0deg);left:82%;}
+                55%  {transform: rotate(0deg);left:82%;}
+                70%  {transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {transform: rotate(-360deg);left:1%;}
+            }
+        </style>
+
+    </head>
+
+    <body>
+		<!-- Logos-->
+        <a href="http://th-wildau.de/"><img src="http://www.th-wildau.de/fileadmin/dokumente/aktuelles/Service_Arbeitsmaterialien/bilder/TH-Wildau-Logo_200px-breit.png" width="100" height="40" align="right" alt="TH Wildau Logo"/></a>
+        <a href="index.html"><img src="log\icons\logo.png" width="74" height="89" align="left" alt="MyWebRTC-Logo"/></a>
+		</br>
+        <p align="center"><b>Project of the Master course "Advanced Communication Solutions"</b></p>
+		</br>
+        <table id="table" align="center">
+		
+			<tr bgcolor="#FFFFFF">
+				<td></td>	
+				
+				<!-- Menu tabs-->
+				<td  colspan="2" align="right">
+					<ul id="menu">
+						<li><a href="demo.html">Demo-Version</a></li>
+						<li><a href="log/login.html">Log In</a></li>
+						<li><a href="log/registry.html">Registration</a></li>
+						<li><a href="log/faq.html">FAQ</a></li>
+						<li><a href="log/imprint.html">Imprint</a></li>
+					</ul>
+				</td> 
+			</tr>
+				
+				<!-- Key line -->
+            <tr class="tr">
+                <td colspan="3">
+                     <h1 align="center"> Welcome to myWebRTC</h1>
+                     <p class="padding_left"> If you are already a registered user, then cklick on the <b>Log In</b> button to enter your username and password.
+					 </br>
+                     If you are new to our page, then click on the button <b>Registration</b>, to registrer yourself in order to use our service.
+                     <br />
+					 <br/>
+					 If you have questions or you want to know more about the myWebRTC application click on the <b>FAQ</b> button.
+					 </p>
+						
+		<table width="100%">
+			<tr width="100%">
+				<td width="50%">
+					<h3 class="padding_left" align="left">Supported Browsers</h3>
+					<a class="padding_left" href="https://www.google.com/chrome/browser/desktop/index.html"><img src="http://www.webrtc.org/_/rsrc/1359368396850/home/chrome.png" width="50"title="Download Chrome Browser"></a>
+					<a class="padding_left" href="https://www.mozilla.org/en-US/firefox/new/#"><img src="http://www.webrtc.org/_/rsrc/1359368427299/home/firefox.png" width="50" title="Download Firefox Browser"></a> 
+                    <a class="padding_left" href="http://www.opera.com/"><img src="http://www.webrtc.org/_/rsrc/1384880131910/home/opera.png" width="50" title="Download Opera Browser"></a><br />
+				</td>
+				<td width="50%">
+					<h3 class="padding_right" align="right">Supported Mobile Platform</h3>
+					<img class="padding_right" align="right" src="http://www.webrtc.org/_/rsrc/1418855088434/home/google_android.png" width="50"title="Android"></a>
+				</td>
+			</tr>
+		</table>
+            <p align="center"> <i>Your myWebRTC Team </i></p>
+                </td>
+             </tr>
+			 <tr>
+				<td colspan="2" bgcolor="white">
+				<br/>
+				<br/>
+				<br/>
+				<!-- Animation box -->
+				<div id="animated_div">myWebRTC</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				</td>
+			   </tr>
+		</table>   
+	</body>
+</html>

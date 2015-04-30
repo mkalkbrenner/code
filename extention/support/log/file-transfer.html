@@ -1,0 +1,261 @@
+<!-- 
+The myWebRTC application was developed during the summer semester 2014 
+ and winter semester 2014-2015 (March 2014-March 2015) as a part of the
+ Master course Business Computing in the Technical University of Applied Science TH Wildau.
+
+ You may use this code for your own education. If you use it largely intact,
+ or develop something from it, don't claim that your code came first. 
+ You are using this code completely at your own risk.  
+
+ CREDITS: Johnston & Burnett WebRTCbook.com 
+ -->
+ 
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>File Transfer</title>
+
+        <style>
+
+
+            div {
+                display:  inline-block;
+            }
+
+			p.padding_left {
+				padding-top: 2%;
+				padding-bottom: 0%;
+			}
+			
+			p.padding_right {
+				padding: 1%;
+			}
+						
+			h3.padding_left {
+				padding-left: 2%;
+				padding-bottom: 0%;
+			}
+			
+			h3.padding_right {
+				padding: 2%;
+			}
+			
+			a.padding_left {
+				padding-left: 3%;
+			}
+			
+			a.padding_right {
+				padding: 2%;
+			}
+			
+			img.hidden {
+				visibility: hidden;
+				padding: 0%;
+			}
+			
+            body {
+                background-color:#FFF;
+				font-family: calibri;
+            }
+
+			/*Settings for the table*/
+            #table {
+                /*margin-left: auto; 
+                    margin: 0px; */
+                width: 70%;
+                border-collapse: collapse;
+                padding: 0px;
+                background-color:#f1f1f1;
+            }
+
+            .td {
+                border: 1px solid #98bf21;
+				padding: 15px;
+                /*background-color:#FFF; */
+            }
+
+            .tr {
+                border: 1px solid #98bf21;
+            }
+            
+            span.color_h3 {
+                color: #98bf21;
+            }
+
+            /* for Navigation Buttons*/
+
+            ul#menu {
+                padding: 0px;
+            }
+
+            ul#menu li {
+                display: inline;
+            }
+
+            ul#menu li a {
+                background-color: #98bf21;
+                color: #FFFFFF;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 4px 4px 0 0;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            ul#menu li a:hover {
+                background-color: #7A991A;
+            }
+
+            /* Animated box */
+            #animated_div {
+                width:108px;
+                height:30px;
+                background:#92B901;
+                color:#ffffff;
+                position:relative;
+                /* left:30px;
+                margin-right: auto; */
+                font-weight:bold;
+                font-size:20px;
+                padding:10px;
+                animation:animated_div 7s infinite;
+                -moz-animation:animated_div 7s infinite;
+                -webkit-animation:animated_div 7s infinite;
+                -o-animation:animated_div 7s infinite;
+                border-radius:5px;
+                -webkit-border-radius:5px;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes animated_div{
+                0%		{transform: rotate(0deg);left:1%;}
+                25%		{transform: rotate(20deg);left:1%;}
+                50%		{transform: rotate(0deg);left:1%;}
+                55%		{transform: rotate(0deg);left:82%;}
+                70%		{transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{transform: rotate(-360deg);left:82%;}
+            }
+
+            @-webkit-keyframes animated_div {
+                0%		{-webkit-transform: rotate(0deg);left:1%;}
+                25%		{-webkit-transform: rotate(20deg);left:1%;}
+                50%		{-webkit-transform: rotate(0deg);left:82%;}
+                55%		{-webkit-transform: rotate(0deg);left:82%;}
+                70%		{-webkit-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{-webkit-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-moz-keyframes animated_div {
+                0%   {-moz-transform: rotate(0deg);left:1%;}
+                25%  {-moz-transform: rotate(20deg);left:1%;}
+                50%  {-moz-transform: rotate(0deg);left:82%;}
+                55%  {-moz-transform: rotate(0deg);left:82%;}
+                70%  {-moz-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {-moz-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-o-keyframes animated_div {
+                0%   {transform: rotate(0deg);left:1%;}
+                25%  {transform: rotate(20deg);left:1%;}
+                50%  {transform: rotate(0deg);left:82%;}
+                55%  {transform: rotate(0deg);left:82%;}
+                70%  {transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {transform: rotate(-360deg);left:1%;}
+            }
+			
+			/* Progress bar */
+			progress {
+				width: 400px;
+				height: 14px;
+				margin: 50px auto;
+				display: block;
+				/* Important Thing */
+				-webkit-appearance: none;
+				border: none;
+			}
+
+			/* the background of the progress bar */
+			progress::-webkit-progress-bar {
+				background: grey;
+				border-radius: 50px;
+				padding: 2px;
+				box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+			}
+
+			/* the value part of the progress bar */
+			progress::-webkit-progress-value {
+				border-radius: 50px;
+				box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+				background:
+					-webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+					-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+					-webkit-linear-gradient(left, #98bf21, #98bf21);
+				
+				/* animating it */
+				background-size: 25px 14px, 100% 100%, 100% 100%;
+				-webkit-animation: move 5s linear 0 infinite;
+			}
+
+			/* stripe pattern */
+			@-webkit-keyframes move {
+				0% {background-position: 0px 0px, 0 0, 0 0}
+				100% {background-position: -100px 0px, 0 0, 0 0}
+			}
+        </style>
+    </head>
+
+    <body>
+	
+	<!-- Logos-->
+        <a href="http://th-wildau.de/"><img src="http://www.th-wildau.de/fileadmin/dokumente/aktuelles/Service_Arbeitsmaterialien/bilder/TH-Wildau-Logo_200px-breit.png" width="100" height="40" align="right" alt="TH Wildau Logo"/></a>
+        <a href="../index.html"><img src="icons/logo.png" width="74" height="89" align="left" alt="MyWebRTC"/></a>
+		</br>
+        <p align="center"><b>Project of the Master course "Advanced Communication Solutions"</b></p>
+		</br>
+
+       
+        <table id="table" align="center">
+			<tr bgcolor="#FFFFFF">
+				<td></td>	
+				
+				 <!-- Menu tabs-->
+				<td  colspan="2" align="right">
+					<ul id="menu">
+						<li><a href="../demo.html">Demo-Version</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+						<li><a href="imprint.html">Imprint</a></li>
+					</ul>
+				</td> 
+			</tr>
+            <tr class="tr">
+				<td colspan="3">
+                    <h1 align="center">File Transfer coming soon...</h1>
+                    <p align="center" class="padding_left">Unfortunately, we were not quite ready yet. But you may see our progress below.</p>
+
+					<!--Progress bar-->
+                    <progress max="100" value="50"></progress>
+					<br/>
+					<p class="padding_right" align="center"><i>Your myWebRTC Team </i></p>
+                </td>
+            </tr>
+			<tr class="tr"></tr>
+			<tr>
+				<td colspan="2" bgcolor="white">
+					<br/>
+					<br/>
+					<br/>
+					
+					<!--Animated box -->
+					<div id="animated_div">myWebRTC</div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+				</td>
+				<td bgcolor="white"></td>
+			</tr>
+		</table>   
+	</body>
+</html>

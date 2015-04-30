@@ -1,0 +1,256 @@
+<!-- 
+The myWebRTC application was developed during the summer semester 2014 
+ and winter semester 2014-2015 (March 2014-March 2015) as a part of the
+ Master course Business Computing in the Technical University of Applied Science TH Wildau.
+
+ You may use this code for your own education. If you use it largely intact,
+ or develop something from it, don't claim that your code came first. 
+ You are using this code completely at your own risk.  
+
+ CREDITS: Johnston & Burnett WebRTCbook.com 
+ -->
+ 
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Imprint</title>
+
+        <style>
+
+
+            div {
+                display:  inline-block;
+            }
+
+			p.padding_left {
+				padding-left: 2%;
+				padding-bottom: 0%;
+				padding-top: 0%;
+				margin: 0%;
+			}
+			
+			p.padding_right {
+				padding: 2%;
+			}
+			
+			h3.padding_left {
+				padding-left: 2%;
+				padding-bottom: 0%;
+				margin: 0%;
+			}
+			
+			h3.padding_right {
+				padding: 2%;
+			}
+			
+			a.padding_left {
+				padding-left: 3%;
+			}
+			
+			a.padding_right {
+				padding: 2%;
+			}
+			
+			img.padding_right {
+				padding-right: 2%;
+				padding-top: 0%;
+				margin-top: 0cm;
+			}
+			
+            body {
+                background-color:#FFF;
+				font-family: calibri;
+			}
+
+			/*Settings for the table*/
+            #table {
+                width: 70%;
+                border-collapse: collapse;
+                padding: 0px;
+                background-color:#f1f1f1;
+            }
+
+            .td {
+                border: 1px solid #98bf21;
+				padding: 15px;
+                /*background-color:#FFF; */
+            }
+
+            .tr {
+                border: 1px solid #98bf21;
+            }
+            
+            span.color_h3 {
+                color: #98bf21;
+            }
+
+            /* for Navigation Buttons*/
+
+            ul#menu {
+                padding: 0px;
+            }
+
+            ul#menu li {
+                display: inline;
+            }
+
+            ul#menu li a {
+                background-color: #98bf21;
+                color: #FFFFFF;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 4px 4px 0 0;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            ul#menu li a:hover {
+                background-color: #7A991A;
+            }
+
+            /* Animated box */
+            #animated_div {
+                width:108px;
+                height:30px;
+                background:#92B901;
+                color:#ffffff;
+                position:relative;
+                /* left:30px;
+                margin-right: auto; */
+                font-weight:bold;
+                font-size:20px;
+                padding:10px;
+                animation:animated_div 7s infinite;
+                -moz-animation:animated_div 7s infinite;
+                -webkit-animation:animated_div 7s infinite;
+                -o-animation:animated_div 7s infinite;
+                border-radius:5px;
+                -webkit-border-radius:5px;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes animated_div{
+                0%		{transform: rotate(0deg);left:1%;}
+                25%		{transform: rotate(20deg);left:1%;}
+                50%		{transform: rotate(0deg);left:1%;}
+                55%		{transform: rotate(0deg);left:82%;}
+                70%		{transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{transform: rotate(-360deg);left:82%;}
+            }
+
+            @-webkit-keyframes animated_div {
+                0%		{-webkit-transform: rotate(0deg);left:1%;}
+                25%		{-webkit-transform: rotate(20deg);left:1%;}
+                50%		{-webkit-transform: rotate(0deg);left:82%;}
+                55%		{-webkit-transform: rotate(0deg);left:82%;}
+                70%		{-webkit-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100%	{-webkit-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-moz-keyframes animated_div {
+                0%   {-moz-transform: rotate(0deg);left:1%;}
+                25%  {-moz-transform: rotate(20deg);left:1%;}
+                50%  {-moz-transform: rotate(0deg);left:82%;}
+                55%  {-moz-transform: rotate(0deg);left:82%;}
+                70%  {-moz-transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {-moz-transform: rotate(-360deg);left:1%;}
+            }
+
+            @-o-keyframes animated_div {
+                0%   {transform: rotate(0deg);left:1%;}
+                25%  {transform: rotate(20deg);left:1%;}
+                50%  {transform: rotate(0deg);left:82%;}
+                55%  {transform: rotate(0deg);left:82%;}
+                70%  {transform: rotate(0deg);left:82%;background:#1ec7e6;}
+                100% {transform: rotate(-360deg);left:1%;}
+            }
+        </style>
+    </head>
+
+    <body>
+
+		<!-- Logos-->
+        <a href="http://th-wildau.de/"><img src="http://www.th-wildau.de/fileadmin/dokumente/aktuelles/Service_Arbeitsmaterialien/bilder/TH-Wildau-Logo_200px-breit.png" width="100" height="40" align="right" alt="TH Wildau Logo"/></a>
+        <a href="../index.html"><img src="icons/logo.png" width="74" height="89" align="left" alt="MyWebRTC"/></a>
+		</br>
+        <p align="center"><b>Project of the Master course "Advanced Communication Solutions"</b></p>
+		</br>
+        <table id="table" align="center">
+			<tr bgcolor="#FFFFFF">
+				<td></td>	
+				
+				<!-- Menu tabs-->
+				<td  colspan="2" align="right">
+					<ul id="menu">
+						 <li><a href="../demo.html">Demo-Version</a></li>
+						<li><a href="registry.html">Registration</a></li>
+						<li><a href="login.html">Log in</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+					</ul>
+				</td> 
+			</tr>
+            <tr class="tr">
+				<td></td>
+     			<td>
+					<h1 align="center">Imprint</h1>
+                    <p class="padding_left">The <b><font color="#98bf21"><big>myWebRTC</big></font></b> application was developed during the summer semester 2014 and winter semester 2014-2015 <i>(March 2014-March 2015)</i> as a part of the Master course <b>Business Computing</b> in the Technical University of Applied Science TH Wildau [FH].
+					<br/>
+					<br/>
+					The inspiration came from the book of Johnston & Burnett <a href="http://webrtcbook.com/"><b>WebRTCbook.com</b></a>. A lot of ideas and elements were taken for the initial stage of the project and later on were further developed to the present view of the <b><font color="#98bf21"><big>myWebRTC</big></font></b> application.
+					<br/>
+					</p>
+					<br/>
+					<br/>
+					<h3 class="padding_left"><u>The Team</u></h3>
+					</br>
+					<h3 class="padding_left"><font color="#98bf21">Developers</font></h3>
+					<p class="padding_left">
+					Alexandra Makariti, B.Sc.
+					<br/>
+					Email: <a href="makariti@th-wildau">makariti@th-wildau.de</a>
+					<br/>
+					<br/>
+					Maxim Lebedev, Dipl.-Ing.
+					<br/>
+					Email: <a href="mailto:lebedev@th-wildau">lebedev@th-wildau.de</a>
+					<br/>
+					<p/>
+					<h3 class="padding_left"><font color="#98bf21">Sys-admin</font></h3>
+					<p class="padding_left">
+					Susanne Koczoh, Dipl.-Ing. (FH), Dipl. Wirt.-Ing.
+					<br/>
+					Email: <a href="mailto:koczoh@th-wildau">koczoh@th-wildau.de</a>
+					<br/>
+					<br/>
+					</p>
+					<h3 class="padding_left"><font color="#98bf21">Supervisor</font></h3>
+					<p class="padding_left">
+					Günter-Ulrich, Tolkiehn, Prof.Dr.rer.nat.
+					<br/>
+					Email: <a href="mailto:tolkiehn@th-wildau.de">tolkiehn@th-wildau.de</a>
+					<br/>
+					</p>
+					<br/><br/> 					
+                </td>
+				<td></td>
+            </tr>
+			<tr>
+				<td colspan="2" bgcolor="white">
+					<br/>
+					<br/>
+					<br/>
+					
+					<!-- Animated box -->
+					<div id="animated_div">myWebRTC</div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+				</td>
+				<td bgcolor="white"></td>
+			</tr>
+		</table>   
+	</body>
+</html>
